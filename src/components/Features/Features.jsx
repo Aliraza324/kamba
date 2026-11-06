@@ -14,16 +14,17 @@ const iconMap = {
 
 const Features = () => {
   return (
-    <section className="w-full bg-[#F5F2ED] border-b border-[#ece7dc]/70 py-6 sm:py-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-[#e5dfd2]/80">
+    <section className="w-full bg-[#F5F2ED] border-b border-[#ece7dc]/70 py-4 sm:py-8 lg:py-10">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4">
           {featuresData.map((item, index) => (
             <FeatureCard
               key={item.id}
               icon={iconMap[item.iconKey]}
               title={item.title}
               description={item.description}
-              isLast={index === featuresData.length - 1}
+              index={index}
+              total={featuresData.length}
             />
           ))}
         </div>
@@ -33,4 +34,3 @@ const Features = () => {
 }
 
 export default Features
-
