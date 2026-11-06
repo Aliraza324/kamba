@@ -12,6 +12,16 @@ const Navbar = () => {
 
   const { brand, links, cart, cta } = navigationData
 
+  const handleToggle = () => {
+    setIsMobileOpen((prev) => !prev)
+    setIsToggleHovered(false)
+  }
+
+  const handleClose = () => {
+    setIsMobileOpen(false)
+    setIsToggleHovered(false)
+  }
+
   return (
     <header className="sticky top-0 z-50 w-full bg-[#ffffff] border-b border-[#ece8df]/80 transition-colors">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
@@ -31,12 +41,12 @@ const Navbar = () => {
 
             <button
               type="button"
-              onClick={() => setIsMobileOpen((prev) => !prev)}
+              onClick={handleToggle}
               onMouseEnter={() => setIsToggleHovered(true)}
               onMouseLeave={() => setIsToggleHovered(false)}
               aria-label={isMobileOpen ? 'Close Menu' : 'Open Menu'}
               aria-expanded={isMobileOpen}
-              className="p-1.5 sm:p-2 rounded-lg text-[#1a2618] hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#346b2b] transition-colors flex-shrink-0"
+              className="p-1.5 sm:p-2 rounded-lg text-[#1a2618] hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#346b2b] transition-colors flex-shrink-0 cursor-pointer"
             >
               {isMobileOpen ? (
                 <XIcon isHovered={isToggleHovered} size={22} />
@@ -53,7 +63,7 @@ const Navbar = () => {
         links={links}
         cart={cart}
         cta={cta}
-        onClose={() => setIsMobileOpen(false)}
+        onClose={handleClose}
       />
     </header>
   )
