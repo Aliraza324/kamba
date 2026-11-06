@@ -4,6 +4,8 @@ import { Story } from '../components/Story'
 import { Experiences } from '../components/Experiences'
 import { PromoCards } from '../components/PromoCards'
 import { Workshops } from '../components/Workshops'
+import { Impact } from '../components/Impact'
+import { Newsletter } from '../components/Newsletter'
 
 const HomePage = () => {
   return (
@@ -14,6 +16,8 @@ const HomePage = () => {
       <Experiences />
       <PromoCards />
       <Workshops />
+      <Impact />
+      <Newsletter />
     </>
   )
 }

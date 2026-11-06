@@ -13,23 +13,21 @@ const Navbar = () => {
   const { brand, links, cart, cta } = navigationData
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#ffff]  transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+    <header className="sticky top-0 z-50 w-full bg-[#ffffff] border-b border-[#ece8df]/80 transition-colors">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20 gap-2">
           <NavbarBrand brand={brand} />
 
           <div className="hidden lg:flex items-center justify-center flex-1 px-8">
             <NavLinks links={links} />
           </div>
 
-          <div className="hidden sm:flex items-center">
+          <div className="hidden lg:flex items-center">
             <NavActions cart={cart} cta={cta} />
           </div>
 
-          <div className="flex items-center gap-3 lg:hidden">
-            <div className="sm:hidden">
-              <NavActions cart={cart} cta={cta} />
-            </div>
+          <div className="flex items-center gap-1.5 sm:gap-3 lg:hidden">
+            <NavActions cart={cart} cta={cta} />
 
             <button
               type="button"
@@ -38,12 +36,12 @@ const Navbar = () => {
               onMouseLeave={() => setIsToggleHovered(false)}
               aria-label={isMobileOpen ? 'Close Menu' : 'Open Menu'}
               aria-expanded={isMobileOpen}
-              className="p-2 rounded-lg text-[#1a2618] hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#346b2b] transition-colors"
+              className="p-1.5 sm:p-2 rounded-lg text-[#1a2618] hover:bg-black/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#346b2b] transition-colors flex-shrink-0"
             >
               {isMobileOpen ? (
-                <XIcon isHovered={isToggleHovered} size={24} />
+                <XIcon isHovered={isToggleHovered} size={22} />
               ) : (
-                <MenuIcon isHovered={isToggleHovered} size={24} />
+                <MenuIcon isHovered={isToggleHovered} size={22} />
               )}
             </button>
           </div>
@@ -62,4 +60,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-
