@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+@theme {
+  --font-serif: "Lora", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --color-brand-primary: #346b2b;
+  --color-brand-primary-hover: #295721;
+  --color-brand-accent: #488737;
+  --color-brand-muted: #5e6b5a;
+  --color-brand-dark: #1b2419;
+  --color-brand-cream: #fbf9f4;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-brand-cream);
+  color: var(--color-brand-dark);
+}

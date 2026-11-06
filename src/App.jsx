@@ -1,9 +1,8 @@
+import { RouterProvider } from 'react-router'
+import { router } from './routes'
+
 const App = () => {
-  return (
-    <>
-      <h1 className="bg-amber-500">Hello</h1>
-    </>
-  )
+  return <RouterProvider router={router} />
 }
 
 export default App
