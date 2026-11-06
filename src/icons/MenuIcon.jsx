@@ -1,35 +1,46 @@
-import { useRef, useEffect, forwardRef, useImperativeHandle } from 'react'
-import { MenuIcon as LucideMenuIcon } from 'lucide-animated'
-
-const MenuIcon = forwardRef(({ isHovered, size = 26, className = '', ...props }, ref) => {
-  const innerRef = useRef(null)
-
-  useImperativeHandle(ref, () => ({
-    startAnimation: () => innerRef.current?.startAnimation?.(),
-    stopAnimation: () => innerRef.current?.stopAnimation?.()
-  }))
-
-  useEffect(() => {
-    if (isHovered === undefined) return
-    if (isHovered) {
-      innerRef.current?.startAnimation?.()
-    } else {
-      innerRef.current?.stopAnimation?.()
-    }
-  }, [isHovered])
-
+const MenuIcon = ({ isHovered, size = 24, className = '', ...props }) => {
   return (
-    <LucideMenuIcon
-      ref={innerRef}
-      size={size}
-      className={className}
-      animateOnHover={false}
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={`transition-all duration-300 ${className}`}
       {...props}
-    />
+    >
+      <line
+        x1="4"
+        x2="20"
+        y1="6"
+        y2="6"
+        className={`transition-transform duration-300 ${
+          isHovered ? 'translate-x-0.5' : ''
+        }`}
+      />
+      <line
+        x1="4"
+        x2="20"
+        y1="12"
+        y2="12"
+        className={`transition-transform duration-300 ${
+          isHovered ? '-translate-x-0.5' : ''
+        }`}
+      />
+      <line
+        x1="4"
+        x2="20"
+        y1="18"
+        y2="18"
+        className={`transition-transform duration-300 ${
+          isHovered ? 'translate-x-0.5' : ''
+        }`}
+      />
+    </svg>
   )
-})
-
-MenuIcon.displayName = 'MenuIcon'
+}
 
 export default MenuIcon
-
