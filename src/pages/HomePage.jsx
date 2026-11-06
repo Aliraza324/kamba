@@ -3,6 +3,7 @@ import { Features } from '../components/Features'
 import { Story } from '../components/Story'
 import { Experiences } from '../components/Experiences'
 import { PromoCards } from '../components/PromoCards'
+import { Workshops } from '../components/Workshops'
 
 const HomePage = () => {
   return (
@@ -12,6 +13,7 @@ const HomePage = () => {
       <Story />
       <Experiences />
       <PromoCards />
+      <Workshops />
     </>
   )
 }
